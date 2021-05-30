@@ -14,3 +14,22 @@ model User {
   email    String? @unique
   password String?
 }
+
+model Product {
+  id          Int           @id @default(autoincrement())
+  name        String?
+  description String?
+  status      String?
+  price       Int?
+  image       ProductImage? @relation("Productimage", fields: [imageId], references: [id])
+  imageId     Int?          @map("image")
+
+  @@index([imageId])
+}
+
+model ProductImage {
+  id      Int      @id @default(autoincrement())
+  image   Json?
+  altText String?
+  product Product? @relation("Productimage")
+}
