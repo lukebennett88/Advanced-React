@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import * as React from 'react';
+import Link from "next/link";
+import * as React from "react";
 
 export function Nav() {
   return (
-    <nav>
+    <nav className="border-t border-black">
       <Link href="sell">
         <a>Sell</a>
       </Link>
