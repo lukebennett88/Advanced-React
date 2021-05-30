@@ -23,6 +23,17 @@ module.exports = {
       fontFamily: {
         sans: ["Radnika Next", ...defaultTheme.fontFamily.sans],
       },
+      skew: {
+        '-5': '-5deg',
+        '5': '5deg',
+        '-7': '-7deg',
+        '7': '7deg',
+        '-20': '-20deg',
+        '20': '20deg',
+      },
+      spacing: {
+        100: '25rem',
+      },
     },
   },
   variants: {
