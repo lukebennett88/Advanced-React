@@ -18,6 +18,7 @@ model User {
 model Product {
   id          Int           @id @default(autoincrement())
   name        String?
+  slug        String?       @unique
   description String?
   status      String?
   price       Int?

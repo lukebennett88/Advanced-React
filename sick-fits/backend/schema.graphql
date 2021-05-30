@@ -105,6 +105,7 @@ input ProductImageRelateToOneInput {
 type Product {
   id: ID!
   name: String
+  slug: String
   description: String
   image: ProductImage
   status: String
@@ -140,6 +141,24 @@ input ProductWhereInput {
   name_not_ends_with_i: String
   name_in: [String]
   name_not_in: [String]
+  slug: String
+  slug_not: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  slug_i: String
+  slug_not_i: String
+  slug_contains_i: String
+  slug_not_contains_i: String
+  slug_starts_with_i: String
+  slug_not_starts_with_i: String
+  slug_ends_with_i: String
+  slug_not_ends_with_i: String
+  slug_in: [String]
+  slug_not_in: [String]
   description: String
   description_not: String
   description_contains: String
@@ -183,6 +202,8 @@ enum SortProductsBy {
   id_DESC
   name_ASC
   name_DESC
+  slug_ASC
+  slug_DESC
   description_ASC
   description_DESC
   status_ASC
@@ -193,6 +214,7 @@ enum SortProductsBy {
 
 input ProductUpdateInput {
   name: String
+  slug: String
   description: String
   image: ProductImageRelateToOneInput
   status: String
@@ -206,6 +228,7 @@ input ProductsUpdateInput {
 
 input ProductCreateInput {
   name: String
+  slug: String
   description: String
   image: ProductImageRelateToOneInput
   status: String
