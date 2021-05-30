@@ -8,8 +8,7 @@
     "dev": "keystone-next dev",
     "format": "prettier . --write --ignore-unknown",
     "eslint:fix": "npm run eslint -- --fix",
-    "eslint": "eslint --color --ext .js,.json,.jsx,.ts,.tsx .",
-    "seed-data": "keystone-next --seed-data"
+    "eslint": "eslint --color --ext .js,.json,.jsx,.ts,.tsx ."
   },
   "dependencies": {
     "@keystone-next/auth": "^25.0.0",
