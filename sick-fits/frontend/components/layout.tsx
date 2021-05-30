@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Header } from './header';
+import * as React from "react";
+import { Header } from "./header";
 
 export function Layout({ children }): JSX.Element {
   return (
-    <div>
+    <div className="flex flex-col">
       <Header />
-      {children}
+      <main className="flex-1 w-full max-w-5xl mx-auto">{children}</main>
     </div>
   );
 }
