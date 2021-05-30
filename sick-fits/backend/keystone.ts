@@ -1,7 +1,7 @@
 import "dotenv/config";
-import { config } from "@keystone-next/keystone/schema";
+import { config, createSchema } from "@keystone-next/keystone/schema";
 
-import { lists } from "./schema";
+import { User } from "./schemas/user";
 
 const databaseURL = process.env.DATABASE_URL || "";
 
@@ -11,7 +11,9 @@ const sessionConfig = {
 };
 
 export default config({
-  lists,
+  lists: createSchema({
+    User,
+  }),
   db: {
     adapter: "prisma_postgresql",
     url: databaseURL,
