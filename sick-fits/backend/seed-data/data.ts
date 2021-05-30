@@ -1,14 +1,14 @@
-function timestamp() {
+function timestamp(): string {
   // sometime in the last 30 days
-  const stampy =
+  const randomDay =
     Date.now() - Math.floor(Math.random() * 1000 * 60 * 60 * 24 * 30);
-  return new Date(stampy).toISOString();
+  return new Date(randomDay).toISOString();
 }
 
 export const products = [
   {
     name: "Yeti Hondo",
-    description: "soo nice",
+    description: "So nice",
     status: "AVAILABLE",
     price: 3423,
     photo: {
@@ -160,7 +160,7 @@ export const products = [
   },
   {
     name: "Nike Vapormax",
-    description: "Kind of squeaky on some floors",
+    description: "Kind of squeaky on some floor",
     status: "AVAILABLE",
     price: 83_456,
     photo: {
@@ -198,7 +198,7 @@ export const products = [
   },
   {
     name: "Yeti Cooler",
-    description: "Who spends this much on a cooler?!",
+    description: "Who spends this much on a cooler?",
     status: "AVAILABLE",
     price: 75_654,
     photo: {
@@ -236,7 +236,7 @@ export const products = [
   },
   {
     name: "Naked and Famous Denim",
-    description: "Japanese Denim, made in Canada",
+    description: "Japanese Denim, made in Canad",
     status: "AVAILABLE",
     price: 10_924,
     photo: {
@@ -274,7 +274,7 @@ export const products = [
   },
   {
     name: "Rimowa Luggage",
-    description: "S T E A L T H",
+    description: "S T E A L T ",
     status: "AVAILABLE",
     price: 47_734,
     photo: {
@@ -312,7 +312,7 @@ export const products = [
   },
   {
     name: "Black Hole ",
-    description: "Outdoorsy ",
+    description: "Butdoorsy",
     status: "AVAILABLE",
     price: 4534,
     photo: {
@@ -350,7 +350,7 @@ export const products = [
   },
   {
     name: "Nudie Belt",
-    description: "Sick design",
+    description: "Bick design",
     status: "AVAILABLE",
     price: 5234,
     photo: {
@@ -388,7 +388,7 @@ export const products = [
   },
   {
     name: "Goose",
-    description: "Keep warm.",
+    description: "Beep warm.",
     status: "AVAILABLE",
     price: 74_544,
     photo: {
@@ -426,7 +426,7 @@ export const products = [
   },
   {
     name: "Ultraboost",
-    description: "blacked out",
+    description: "Blacked out",
     status: "AVAILABLE",
     price: 6344,
     photo: {
