@@ -1,5 +1,10 @@
 import "dotenv/config";
 import { config, createSchema } from "@keystone-next/keystone/schema";
+import { createAuth } from "@keystone-next/auth";
+import {
+  statelessSessions,
+  withItemData,
+} from "@keystone-next/keystone/session";
 
 import { User } from "./schemas/user";
 
@@ -10,23 +15,33 @@ const sessionConfig = {
   secret: process.env.COOKIE_SECRET,
 };
 
-export default config({
-  lists: createSchema({
-    User,
-  }),
-  db: {
-    adapter: "prisma_postgresql",
-    url: databaseURL,
+const { withAuth } = createAuth({
+  listKey: "User",
+  identityField: "email",
+  secretField: "password",
+  initFirstItem: {
+    fields: ["name", "email", "password"],
   },
-  ui: {
-    // TODO: change this for roles
-    isAccessAllowed: () => true,
-  },
-  server: {
-    cors: {
-      origin: [process.env.FRONTEND_URL],
-      credentials: true,
-    },
-  },
-  // TODO: Add session values here
 });
+
+export default withAuth(
+  config({
+    lists: createSchema({
+      User,
+    }),
+    db: {
+      adapter: "prisma_postgresql",
+      url: databaseURL,
+    },
+    ui: {
+      isAccessAllowed: ({ session }) => Boolean(session?.data),
+    },
+    server: {
+      cors: {
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+      },
+    },
+    session: withItemData(statelessSessions(sessionConfig), { User: "name" }),
+  })
+);
